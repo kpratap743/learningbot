@@ -1,0 +1,23 @@
+from typing import List, Optional
+from datetime import datetime
+from sqlmodel import SQLModel, Field
+from sqlalchemy import Column, JSON
+
+class Concept(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    topic: str
+    prerequisites_ids: List[int] = Field(default_factory=list, sa_column=Column(JSON))
+    mastery_score: float = Field(default=0.0)
+    recall_half_life: float = Field(default=0.0)
+
+class Resource(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    source_url: str
+    summary: str
+    linked_concept_ids: List[int] = Field(default_factory=list, sa_column=Column(JSON))
+
+class PrincipalSkill(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    category: str
+    simulation_prompt: str
+    last_practiced: Optional[datetime] = Field(default=None)

@@ -8,7 +8,11 @@ version = "0.1.0"
 description = "Shared models for Learning project"
 dependencies = [
     "pydantic",
+    "sqlmodel",
 ]
+
+[tool.setuptools]
+py-modules = ["models"]
 
 [tool.setuptools.packages.find]
 where = ["."]
