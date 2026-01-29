@@ -1,0 +1,15 @@
+[build-system]
+requires = ["setuptools", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "learning-shared"
+version = "0.1.0"
+description = "Shared models for Learning project"
+dependencies = [
+    "pydantic",
+]
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["knowledge_graph*"]
