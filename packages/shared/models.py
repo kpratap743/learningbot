@@ -21,3 +21,12 @@ class PrincipalSkill(SQLModel, table=True):
     category: str
     simulation_prompt: str
     last_practiced: Optional[datetime] = Field(default=None)
+
+class KnowledgeNode(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    label: str
+    summary: str
+    source_url: str
+    extracted_primitives: List[str] = Field(default_factory=list, sa_column=Column(JSON))
+    linked_concept_ids: List[int] = Field(default_factory=list, sa_column=Column(JSON))
+    status: str = Field(default="draft")
