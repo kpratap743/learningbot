@@ -30,3 +30,5 @@ class KnowledgeNode(SQLModel, table=True):
     extracted_primitives: List[str] = Field(default_factory=list, sa_column=Column(JSON))
     linked_concept_ids: List[int] = Field(default_factory=list, sa_column=Column(JSON))
     status: str = Field(default="draft")
+    recall_half_life: float = Field(default=7.0)
+    last_recalled: Optional[datetime] = Field(default_factory=datetime.utcnow)
