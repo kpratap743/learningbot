@@ -9,3 +9,5 @@ playwright
 langchain
 langchain-openai
 beautifulsoup4
+apscheduler
+httpx
