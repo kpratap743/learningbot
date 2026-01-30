@@ -4,3 +4,8 @@ sqlmodel
 psycopg2-binary
 pinecone-client
 ../../packages/shared
+
+playwright
+langchain
+langchain-openai
+beautifulsoup4
