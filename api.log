@@ -1,1 +1,22 @@
--bash: .venv/bin/uvicorn: No such file or directory
+INFO:     Started server process [15216]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit)
+INFO:     127.0.0.1:39986 - "GET /nodes HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39996 - "GET /nodes HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39996 - "OPTIONS /nodes HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39986 - "POST /nodes HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39986 - "GET /nodes HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39986 - "POST /nodes/1/quiz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:39986 - "GET /nodes HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36344 - "GET /nodes HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36360 - "GET /nodes HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36360 - "OPTIONS /nodes HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36344 - "POST /nodes HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36344 - "GET /nodes HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36344 - "POST /nodes/2/quiz HTTP/1.1" 200 OK
+INFO:     127.0.0.1:36344 - "GET /nodes HTTP/1.1" 200 OK
+INFO:     Shutting down
+INFO:     Waiting for application shutdown.
+INFO:     Application shutdown complete.
+INFO:     Finished server process [15216]

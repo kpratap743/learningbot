@@ -1,21 +1,23 @@
 'use client';
 
-import ReactFlow, { Background, Controls } from 'reactflow';
-import 'reactflow/dist/style.css';
-
-const initialNodes = [
-  { id: '1', position: { x: 0, y: 0 }, data: { label: 'Hello' } },
-  { id: '2', position: { x: 0, y: 100 }, data: { label: 'World' } },
-];
-const initialEdges = [{ id: 'e1-2', source: '1', target: '2' }];
+import { useRouter } from 'next/navigation';
+import { useEffect } from 'react';
 
 export default function Home() {
+  const router = useRouter();
+
+  useEffect(() => {
+    const isAuthenticated = localStorage.getItem('isAuthenticated');
+    if (isAuthenticated) {
+      router.push('/dashboard');
+    } else {
+      router.push('/login');
+    }
+  }, [router]);
+
   return (
-    <div style={{ width: '100vw', height: '100vh' }}>
-      <ReactFlow nodes={initialNodes} edges={initialEdges}>
-        <Background />
-        <Controls />
-      </ReactFlow>
+    <div className="flex items-center justify-center min-h-screen">
+      <p>Redirecting...</p>
     </div>
   );
 }

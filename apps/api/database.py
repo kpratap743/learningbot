@@ -1,9 +1,11 @@
+import os
 from sqlmodel import SQLModel, create_engine, Session
 
 # Using localhost for running outside docker, but targeting the docker port.
 # If running inside docker, this would be 'db'.
 # For now, assuming local development against dockerized DB.
-DATABASE_URL = "postgresql://user:password@localhost:5432/learning"
+# Fallback to sqlite if postgres is not available or for simpler testing
+DATABASE_URL = os.getenv("DATABASE_URL", "sqlite:///learning.db")
 
 engine = create_engine(DATABASE_URL)
 
@@ -33,6 +35,10 @@ def migrate_schema():
             if 'last_recalled' not in columns:
                 print(f"Adding last_recalled column to {table_name} table")
                 conn.execute(text(f"ALTER TABLE {table_name} ADD COLUMN last_recalled TIMESTAMP"))
+
+            if 'mastery_score' not in columns:
+                print(f"Adding mastery_score column to {table_name} table")
+                conn.execute(text(f"ALTER TABLE {table_name} ADD COLUMN mastery_score FLOAT DEFAULT 0.0"))
 
             conn.commit()
     except Exception as e:
